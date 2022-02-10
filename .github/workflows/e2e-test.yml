@@ -23,14 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Use cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-E2E-${{ hashFiles('package-lock.json') }}
-
       - name: Install dependencies
         run: |
           npm install
