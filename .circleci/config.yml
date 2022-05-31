@@ -15,7 +15,7 @@ jobs:
       # SAST_SERVER: https://sast-demo.whitesourcesoftware.com
       - run: 
           name: Download Mend SAST CLI
-          command: bash <curl -LJO https://downloads-sast.whitesourcesoftware.com/sast-cli/linux/wssastcli && chmod +x wssastcli)
+          command: curl -LJO https://downloads-sast.whitesourcesoftware.com/sast-cli/linux/wssastcli && chmod +x wssastcli
       - run: 
           name: Run Mend SAST
           command: ./wssastcli --dir ./ --name=${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}} --app=${{github.event.repository.name}} --baseline=true
