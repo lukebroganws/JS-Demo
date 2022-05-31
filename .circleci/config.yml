@@ -12,14 +12,16 @@ jobs:
       # execute Mend scan, curling the latest CLI. Remeber to set environmental variables (SAST Organization, SAST CLI Token, and SAST Server)
       - run: 
           name: Download Mend SAST CLI
-          command: <(curl -LJO https://downloads-sast.whitesourcesoftware.com/sast-cli/linux/wssastcli)
+          command: bash <(curl -LJO https://downloads-sast.whitesourcesoftware.com/sast-cli/linux/wssastcli && chmod +x wssastcli)
       - run: 
           name: Run Mend SAST
           command: |
+            bash <(
             ./wssastcli --dir ./ --app=circleci --baseline=true
             SAST_ORGANIZATION: lukebroganOrg
             SASTCLI_TOKEN: 6750955702bc3d92f08766780165f2b5251fde62f5d9e200dab1b0f626c87376
             SAST_SERVER: https://sast-demo.whitesourcesoftware.com
+            )
 workflows:
   example-workflow:
     jobs:
