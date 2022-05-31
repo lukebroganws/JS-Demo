@@ -9,6 +9,7 @@ jobs:
       # prebuilt image with java
       - image: cimg/openjdk:16.0.2
     steps:
+      - checkout
       # execute Mend scan, curling the latest CLI. Remeber to set environmental variables (SAST Organization, SAST CLI Token, and SAST Server)
       - run: 
           name: Download Mend SAST CLI
