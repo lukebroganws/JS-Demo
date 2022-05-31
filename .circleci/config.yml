@@ -18,7 +18,7 @@ jobs:
           command: curl -LJO https://downloads-sast.whitesourcesoftware.com/sast-cli/linux/wssastcli && chmod +x wssastcli
       - run: 
           name: Run Mend SAST
-          command: ./wssastcli --dir ./ --name=${{github.event.repository.name}}-${{github.ref_name}}-${{github.sha}} --app=${{github.event.repository.name}} --baseline=true
+          command: ./wssastcli --dir ./ --app=circleci --baseline=true
 workflows:
   example-workflow:
     jobs:
