@@ -7,7 +7,7 @@ on:
     branches: [ release* ]
 
 jobs:
-  WhiteSource-Prioritize:
+  Mend-Prioritize:
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-      - name: WhiteSource Unified Agent Scan
+      - name: Mend Unified Agent Scan
         env:
           WS_APIKEY: ${{secrets.APIKEY}}
           WS_USERKEY: ${{secrets.USERKEY}}
